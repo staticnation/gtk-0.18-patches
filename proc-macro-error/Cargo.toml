@@ -1,0 +1,22 @@
+# proc-macro-error 1.0.4's name, version and API, over proc-macro-error3 (maintained).
+# For [patch.crates-io] only: glib-macros 0.18 (Tauri 2's Linux stack) asks for
+# proc-macro-error "1.0", which is unmaintained (RUSTSEC-2024-0370). Not published.
+[package]
+name = "proc-macro-error"
+version = "1.0.4"
+edition = "2021"
+rust-version = "1.61"
+description = "proc-macro-error 1.0.4's API, re-exported from proc-macro-error3 (staticnation)"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/staticnation/gtk-0.18-patches"
+publish = false
+
+[dependencies]
+proc-macro-error3 = { version = "=3.1.1", default-features = false }
+proc-macro-error-attr = { path = "../proc-macro-error-attr", version = "=1.0.4" }
+
+[features]
+# 1.0.4's default: `From<syn::Error> for Diagnostic`. syn 2 here (1.0.4 had syn 1), which is
+# what glib-macros 0.18 uses.
+default = ["syn-error"]
+syn-error = ["proc-macro-error3/syn2-error"]

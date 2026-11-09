@@ -1,0 +1,5 @@
+# Patches for the gtk-rs 0.18 crates Tauri 2 brings in on Linux, for [patch.crates-io] in
+# WraithguardToolkit's viewer-shell. Each keeps the name and version of the crate it stands in for.
+[workspace]
+members = ["glib", "proc-macro-error", "proc-macro-error-attr"]
+resolver = "2"
